@@ -3,11 +3,13 @@ nav
     display: flex;
     align-items: center;
     padding: 10px 20px;
+    background-color: black;
 }
+
 
 .navbar-brand
 {
-    color: black;
+    color: white;
     font-weight: bolder;
 }
 
@@ -22,33 +24,41 @@ nav
     width: 200px;
 }
 
-
 input
 {
     padding-left: 20px;
 }
 
+.input-container{
+    position: relative;
+}
+
 .search-icon
 {
     position: absolute;
-    top: 20px;
-    right: 170px;
+    top: 10px;
+    right: 15px;
 }
 
-.fa-cart-plus
+.fa-cart-shopping
 {
   margin: 10px 20px auto;
   color: white;
   font-size: 25px;
 }
 
-.badge
+.cart-container{
+   position: relative;
+}
+
+.cart-number
 {
     position: absolute;
-    font-size: 9px;
-    right: 108px;
-    top: 20px;
+    font-size: 10px;
+    left: 30px;
+    top: 10px;
     font-weight: bolder;
+    color: black;
 }
 
 #navbarDropdown
@@ -58,7 +68,7 @@ input
 
 #navbarDropdown
 {
-    color: black;
+    color: white;
 }
 
 
