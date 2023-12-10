@@ -1,0 +1,17 @@
+img{
+    height: 90px;
+    width: 90px;
+}
+
+.list-group-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.isActive{
+    background-color: rgb(59, 59, 187);
+    color: white;
+    cursor:default;
+}
