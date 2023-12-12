@@ -71,4 +71,17 @@ input
     color: white;
 }
 
+.route-link{
+    text-decoration: none;
+    margin-right: 30px;
+    color: white;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+}
+
+
+
 

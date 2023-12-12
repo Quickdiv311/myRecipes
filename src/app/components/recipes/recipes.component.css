@@ -1,3 +1,8 @@
 .container{
     margin: 5% 25%;
 }
+
+.col-md-4{
+    border-right: 5px solid rgb(168, 153, 153);
+    padding: 0px 40px 0px 10px;
+}

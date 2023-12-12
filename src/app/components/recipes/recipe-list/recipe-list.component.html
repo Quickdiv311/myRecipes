@@ -1,22 +1,24 @@
-<div class="row">
-    <div class="col-md-12">
-        <button class="btn btn-success mb-5">New Recipe
-        </button>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-success mb-5">New Recipe
+            </button>
+        </div>
     </div>
-</div>
-
-<div class="row">
-    <div class="col-md-8 list-group">
-        <div class="list-group-item"
-         *ngFor="let recipe of recipes; let i = index"
-          (click)="current = i;"
-          [ngClass]="{isActive: i == current}">
-            <div>
-                <h5>{{recipe.name}}</h5>
-                <p>{{recipe.description}}</p>
-            </div>
-            <div>
-                <img src="{{recipe.imagePath}}" alt="">
+    
+    <div class="row">
+        <div class="col-md-12 list-group">
+            <div class="list-group-item"
+             *ngFor="let recipe of recipes;"
+              (click)="current = recipe.id;"
+              [ngClass]="{isActive: recipe.id == current}">
+                <div>
+                    <h5>{{recipe.name}}</h5>
+                    <p>{{recipe.description}}</p>
+                </div>
+                <div>
+                    <img src="{{recipe.imagePath}}" alt="">
+                </div>
             </div>
         </div>
     </div>

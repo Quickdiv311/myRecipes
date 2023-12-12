@@ -8,10 +8,15 @@ img{
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    padding: 20px;
 }
 
 .isActive{
     background-color: rgb(59, 59, 187);
     color: white;
     cursor:default;
+}
+
+.container{
+    padding: 0;
 }
