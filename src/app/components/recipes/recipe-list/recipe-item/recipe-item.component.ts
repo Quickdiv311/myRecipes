@@ -9,9 +9,9 @@ import { Recipe } from '../../recipes.model';
 export class RecipeItemComponent {
   @Input() recipe?: Recipe;
   @Input() current?: number;
-  @Output() activeChanged = new EventEmitter<number>();
+  @Output() activeChanged = new EventEmitter<Recipe>();
 
   activeChange(){
-    this.activeChanged.emit(this.recipe?.id);
+    this.activeChanged.emit(this.recipe);
   }
 }
