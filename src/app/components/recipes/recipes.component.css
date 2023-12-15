@@ -6,3 +6,9 @@
     border-right: 5px solid rgb(168, 153, 153);
     padding: 0px 40px 0px 10px;
 }
+
+h2{
+    margin: 80px 60px;
+   text-align: center;
+   width: fit-content
+}
