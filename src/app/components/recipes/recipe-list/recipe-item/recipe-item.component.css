@@ -1,0 +1,21 @@
+img{
+    height: 80px;
+    width: 80px;
+}
+
+.list-group-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+
+.isActive{
+    background-color: rgb(59, 59, 187);
+    color: white;
+    cursor:default;
+}

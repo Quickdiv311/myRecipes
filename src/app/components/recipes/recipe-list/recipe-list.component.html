@@ -8,18 +8,7 @@
     
     <div class="row">
         <div class="col-md-12 list-group">
-            <div class="list-group-item"
-             *ngFor="let recipe of recipes;"
-              (click)="current = recipe.id;"
-              [ngClass]="{isActive: recipe.id == current}">
-                <div>
-                    <h5>{{recipe.name}}</h5>
-                    <p>{{recipe.description}}</p>
-                </div>
-                <div>
-                    <img src="{{recipe.imagePath}}" alt="">
-                </div>
-            </div>
+             <app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe" [current]="current" (activeChanged)="onCurrentChanged($event)"></app-recipe-item>
         </div>
     </div>
 </div>
