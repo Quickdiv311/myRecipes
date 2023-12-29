@@ -72,9 +72,11 @@ input
 }
 
 .route-link{
-    text-decoration: none;
     margin-right: 30px;
     color: white;
+    position: relative;
+    top: 8px;
+    cursor: pointer;
 }
 
 .links{
