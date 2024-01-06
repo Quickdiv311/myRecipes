@@ -84,6 +84,11 @@ input
     align-items: center;
 }
 
+.active{
+    font-weight: bolder;
+    font-size: medium;
+}
+
 
 
 

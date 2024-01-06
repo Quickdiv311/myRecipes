@@ -14,7 +14,7 @@ img{
 }
 
 
-.isActive{
+.active{
     background-color: rgb(59, 59, 187);
     color: white;
     cursor:default;

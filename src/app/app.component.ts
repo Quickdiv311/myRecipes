@@ -8,8 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'myRecipes';
   currentPage: number = 0;
-
-  onPageChange(index: number){
-    this.currentPage = index;
-  } 
 }

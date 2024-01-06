@@ -1,6 +1,4 @@
-<div class="list-group-item"
- (click)="recipeSelect()"
- [ngClass]="{isActive: recipe?.id == currentActive}">
+<div class="list-group-item" [routerLink]="['/recipes','detail', this.recipe?.id]" routerLinkActive="active">
    <div class="item-info">
        <h5>{{recipe?.name}}</h5>
        <p>{{recipe?.description}}</p>

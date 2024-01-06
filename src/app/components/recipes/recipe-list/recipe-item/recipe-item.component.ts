@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Recipe } from '../../recipes.model';
 import { RecipeService } from 'src/app/services/recipe.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-item',
@@ -9,18 +10,9 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class RecipeItemComponent implements OnInit {
   @Input() recipe?: Recipe;
-  currentActive?: number;
 
-  constructor(private recipeService: RecipeService){}
+  constructor(private router: Router){}
 
   ngOnInit(): void {
-    this.recipeService.currentChanged.subscribe((current: number) => {
-       this.currentActive = current;
-    })
-  }
-
-  recipeSelect(){
-     this.recipeService.recipeSelected.emit(this.recipe);
-     this.recipeService.currentChanged.emit(this.recipe?.id);
   }
 }

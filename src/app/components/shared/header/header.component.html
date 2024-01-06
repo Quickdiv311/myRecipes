@@ -5,8 +5,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="nav navbar-nav rightNav">
-        <li class="nav-item links">
-          <p href="" class="route-link" *ngFor="let heading of headingList; let i = index" (click)="pageChange(i)">{{heading}}</p>
+        <li class="nav-item" routerLinkActive="active">
+          <p class="route-link" routerLink="/recipes">Recipes</p>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <p class="route-link" routerLink="/shopping">Shopping List</p>
         </li>
 
         <li class="nav-item input-container">

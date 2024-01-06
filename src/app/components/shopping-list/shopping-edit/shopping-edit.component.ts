@@ -19,6 +19,6 @@ export class ShoppingEditComponent {
     let name = this.ingredientNameRef?.nativeElement.value;
     let amount  = this.ingredientAmountRef?.nativeElement.value;
     this.newIngredient = new Ingredient(name,amount);
-    this.shoppingService.ingredientAdded.emit(this.newIngredient);
+    this.shoppingService.ingredientAdded.next(this.newIngredient);
   }
 }
