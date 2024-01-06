@@ -1,6 +1,6 @@
 <div class="list-group-item"
- (click)="activeChange()"
- [ngClass]="{isActive: recipe?.id == current}">
+ (click)="recipeSelect()"
+ [ngClass]="{isActive: recipe?.id == currentActive}">
    <div class="item-info">
        <h5>{{recipe?.name}}</h5>
        <p>{{recipe?.description}}</p>

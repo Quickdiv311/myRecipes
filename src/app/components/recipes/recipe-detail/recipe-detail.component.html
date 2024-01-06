@@ -7,12 +7,17 @@
     </div>
     <div class="row">
         <div class="col-md-8">
-            <button class="btn btn-primary dropdown-toggle">Manage Recipe</button>
+            <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Manage Recipe</button>
             <ul class="dropdown-menu">
-              <li></li>
+              <li (click)="addIngredientsToList()">Add Ingredients to List</li>
               <li>Edit Item</li>
               <li>Delete Item</li>
             </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 list-group">
+            <div class="list-group-item" *ngFor="let ingredient of recipeDetail?.ingredients">{{ingredient.name}} ({{ingredient.amount}})</div>
         </div>
     </div>
     <div class="row">

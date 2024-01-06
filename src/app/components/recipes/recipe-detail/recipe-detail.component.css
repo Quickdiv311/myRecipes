@@ -5,3 +5,21 @@ img{
 .container{
     padding-left: 50px;
 }
+
+.list-group{
+    margin: 20px 0;
+}
+
+ul{
+    width :200px
+}
+
+li{
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+li:hover{
+    background-color: black;
+    color: white;
+}
