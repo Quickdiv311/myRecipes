@@ -11,7 +11,7 @@
             <ul class="dropdown-menu">
               <li (click)="addIngredientsToList()">Add Ingredients to List</li>
               <li [routerLink]="['/recipes','edit',this.recipeDetail?.id]">Edit Item</li>
-              <li>Delete Item</li>
+              <li (click)="onDeleteRecipe()">Delete Item</li>
             </ul>
         </div>
     </div>

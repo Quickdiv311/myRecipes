@@ -1,10 +1,14 @@
 .container{
-    margin: 5% 25%;
+    margin: 5% 25% 1%;
 }
 
 .col-md-4{
     border-right: 5px solid rgb(168, 153, 153);
     padding: 0px 40px 0px 10px;
+}
+
+.col-md-8{
+    min-height: 80vh;
 }
 
 h2{

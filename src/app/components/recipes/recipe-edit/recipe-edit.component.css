@@ -1,0 +1,26 @@
+.recipe-form{
+    padding-left: 50px;
+}
+
+.form-group{
+    margin-bottom: 20px;
+}
+
+img{
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+label{
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+
+.ingredient{
+    margin-bottom: 10px;
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched{
+    outline: 2px solid red;
+}

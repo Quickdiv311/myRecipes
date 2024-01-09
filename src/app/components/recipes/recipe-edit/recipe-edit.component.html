@@ -1,4 +1,58 @@
-<p *ngIf="editMode; else new">recipe-edit works for id {{id}}</p>
-<ng-template #new>
-      <p>recipe edit new</p>
-</ng-template>
+<div class="recipe-form">
+      <div class="row">
+            <div class="col-xs-12">
+                  <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+                        <div class="row" style="margin-bottom: 30px;">
+                              <div class="col-xs-12">
+                                    <button class="btn btn-success" style="margin-right: 10px;" type="submit" [disabled]="!recipeForm.valid">Save</button>
+                                    <button class="btn btn-danger" type="button" (click)="onCancel()">Cancel</button>
+                              </div>
+                        </div>
+                        <div class="row">
+                              <div class="form-group col-md-8">
+                                    <label for="Name">Recipe Name</label>
+                                    <input type="text" class="form-control" formControlName="name" id="name">
+                              </div>
+            
+                              <div class="form-group col-md-8">
+                                    <label for="imagePath">Recipe Image Url</label>
+                                    <input type="text" class="form-control" formControlName="imagePath" id="imagePath" #imagePath>
+                              </div>
+            
+            
+                              <div class="col-md-8">
+                                    <img [src]="imagePath.value" alt="">
+                              </div>
+            
+                              <div class="form-group col-md-8">
+                                    <label for="description">Recipe Description</label>
+                                    <textarea type="text" class="form-control" formControlName="description" id="description" rows="3">
+                                    </textarea>
+                              </div>
+
+                              <div formArrayName="ingredients">
+                                <label for="">Recipe Ingredients</label>
+                                <div *ngFor="let control of controls; let i = index">
+                                    <div class="row ingredient" [formGroupName]="i">
+                                          <div class="col-md-5">
+                                                <input type="text" class="form-control" placeholder="name" formControlName="name">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <input type="number" class="form-control" placeholder="amount" formControlName="amount">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button class="btn btn-danger" type="button" (click)="onDeleteIngredient(i)">X</button>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                          <button class="btn btn-primary" type="button" (click)="onAddIngredient()">Add Ingredient</button>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+                  </form>
+            </div>
+      </div>
+</div>
