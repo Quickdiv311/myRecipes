@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from './recipes.model';
 import { RecipeService } from 'src/app/services/recipe.service';
-import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-recipes',
@@ -10,9 +8,9 @@ import { ActivatedRoute, Route } from '@angular/router';
 })
 export class RecipesComponent implements OnInit {
 
-   constructor(){}
+   constructor(private recipeService: RecipeService){}
 
    ngOnInit(){
-
+       this.recipeService.fetchRecipes();
    }
 }
