@@ -32,8 +32,7 @@
 
                               <div formArrayName="ingredients">
                                 <label for="">Recipe Ingredients</label>
-                                <div *ngFor="let control of controls; let i = index">
-                                    <div class="row ingredient" [formGroupName]="i">
+                                <div *ngFor="let control of controls; let i = index" [formGroupName]="i" class="row ingredient">
                                           <div class="col-md-5">
                                                 <input type="text" class="form-control" placeholder="name" formControlName="name">
                                             </div>
@@ -43,7 +42,6 @@
                                             <div class="col-md-2">
                                                 <button class="btn btn-danger" type="button" (click)="onDeleteIngredient(i)">X</button>
                                             </div>
-                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">

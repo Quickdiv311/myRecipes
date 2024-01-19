@@ -4,6 +4,7 @@ import { Ingredient } from '../components/shared/models/Ingredient.model';
 import { ShoppingService } from './shopping.service';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import {map, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -27,10 +28,17 @@ export class RecipeService {
   }
 
    fetchRecipes(){
-      this.http.get<Recipe[]>('https://recipes-ae571-default-rtdb.firebaseio.com/recipes.json').subscribe(res => {
+      return this.http.get<Recipe[]>('https://recipes-ae571-default-rtdb.firebaseio.com/recipes.json')
+      .pipe(map((recipes: Recipe[]) => {
+       return recipes.map(recipe => {
+           return {...recipe, ingrediens: recipe.ingredients ? recipe.ingredients : []}
+        })
+      }),
+      tap((res: Recipe[]) => {
         this.recipes = res;
         this.recipesChanged.next(this.recipes.slice());
       })
+      )
    }
 
   getRecipe(id: number){
@@ -59,6 +67,5 @@ export class RecipeService {
 
   addToShoppingList(ingredients: Ingredient[]){
     this.shoppingListService.addIngredients(ingredients);
-    this.updateRecipes();
   }
 }

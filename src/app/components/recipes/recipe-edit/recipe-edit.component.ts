@@ -42,7 +42,11 @@ export class RecipeEditComponent implements OnInit{
   }
 
   onCancel(){
+    if(this.recipeForm.valid)
     this.router.navigate(['/recipes','detail',this.id]);
+     
+    else
+    this.router.navigate(['/recipes']);
   }
 
   onAddIngredient(){

@@ -20,21 +20,11 @@ export class RecipeDetailComponent implements OnInit {
          this.id = +params['id'];
          this.recipeDetail = this.recipeService.getRecipe(this.id);
     })
-
-    this.recipeService.recipesChanged.subscribe(rec => {
-        rec.forEach(i => {
-          if(i.id == this.id)
-          {
-            this.recipeDetail = i;
-          }
-        })
-    })
   }
 
   addIngredientsToList(){
     if(this.recipeDetail)
     this.recipeService.addToShoppingList(this.recipeDetail.ingredients);
-    this.router.navigate(['/shopping']);
   }
 
   onDeleteRecipe(){
