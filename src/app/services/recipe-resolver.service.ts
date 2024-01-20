@@ -12,6 +12,12 @@ export class RecipeResolverService implements Resolve<Recipe[]> {
   constructor(private recipeService: RecipeService) { }
 
    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Recipe[] | Observable<Recipe[]> | Promise<Recipe[]> {
-     return this.recipeService.fetchRecipes();
+    let recipe = this.recipeService.getRecipeList();
+
+    if(recipe.length == 0){
+      return this.recipeService.fetchRecipes();
+    }
+
+    return recipe;
    }
 }
