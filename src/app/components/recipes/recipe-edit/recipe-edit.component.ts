@@ -34,7 +34,7 @@ export class RecipeEditComponent implements OnInit{
     }
     else
     {
-      this.id = this.recipeService.idCounter++;
+      this.id = ++this.recipeService.idCounter;
       let newRecipe = new Recipe(this.id,name,description,imagePath,ingredients);
       this.recipeService.addRecipe(newRecipe);
     }

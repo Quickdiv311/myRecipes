@@ -47,6 +47,13 @@ input
   font-size: 25px;
 }
 
+.fa-user-circle-o{
+    margin: 10px 20px auto;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+
 .cart-container{
    position: relative;
 }
@@ -86,7 +93,15 @@ input
 
 .active{
     font-weight: bolder;
-    font-size: medium;
+    text-transform: uppercase;
+}
+
+.active p{
+    color: rgb(189, 51, 46);
+}
+
+.sign-in{
+   margin-left: 20px;
 }
 
 

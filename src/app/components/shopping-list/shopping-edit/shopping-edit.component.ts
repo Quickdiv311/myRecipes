@@ -1,7 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Output, ViewChild } from '@angular/core';
 import { Ingredient } from '../../shared/models/Ingredient.model';
 import { ShoppingService } from 'src/app/services/shopping.service';
 import { NgForm } from '@angular/forms';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -14,6 +15,7 @@ export class ShoppingEditComponent implements OnInit {
   canEdit= false;
   selectedIndex = -1;
   selectedItem?: Ingredient;
+  @Output() ingredientCleared = new Subject<boolean>();
 
   constructor(private shoppingService: ShoppingService){}
 
@@ -34,6 +36,7 @@ export class ShoppingEditComponent implements OnInit {
     this.ingredient = new Ingredient(name,amount);
     if(this.canEdit){
       this.shoppingService.updateIngredient(this.selectedIndex, this.ingredient);
+      this.ingredientCleared.next(true);
       this.canEdit = false;
     }
     else
@@ -46,11 +49,13 @@ export class ShoppingEditComponent implements OnInit {
   onClear(){
     this.form?.reset();
     this.canEdit = false;
+    this.ingredientCleared.next(true);
   }
 
   onDelete(){
-    this.shoppingService.deleteIngredient(this.selectedIndex);
+    this.shoppingService.deleteIngredient(this.selectedIndex); 
     this.form?.reset();
     this.canEdit = false;
+    this.ingredientCleared.next(true);
   }
 }

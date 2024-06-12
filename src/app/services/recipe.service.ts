@@ -3,8 +3,9 @@ import { Recipe } from '../components/recipes/recipes.model';
 import { Ingredient } from '../components/shared/models/Ingredient.model';
 import { ShoppingService } from './shopping.service';
 import { Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import {map, tap} from 'rxjs/operators';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import {exhaustMap, map, take, tap} from 'rxjs/operators';
+import { AuthService } from '../components/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class RecipeService {
   
   recipes: Recipe[]   = []
   
-  constructor(private shoppingListService: ShoppingService, private http: HttpClient){}
+  constructor(private shoppingListService: ShoppingService, private http: HttpClient, private authService: AuthService){}
  
   getRecipeList(){
     return this.recipes.slice();
@@ -28,17 +29,18 @@ export class RecipeService {
   }
 
    fetchRecipes(){
-      return this.http.get<Recipe[]>('https://recipes-ae571-default-rtdb.firebaseio.com/recipes.json')
-      .pipe(map((recipes: Recipe[]) => {
-       return recipes.map(recipe => {
-           return {...recipe, ingrediens: recipe.ingredients ? recipe.ingredients : []}
-        })
-      }),
-      tap((res: Recipe[]) => {
-        this.recipes = res;
-        this.recipesChanged.next(this.recipes.slice());
-      })
-      )
+        return this.http.get<Recipe[]>('https://recipes-ae571-default-rtdb.firebaseio.com/recipes.json')
+        .pipe(
+          map((recipes: Recipe[]) => {
+            return recipes.map(recipe => {
+                return {...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []}
+             })
+           }),
+           tap((res: Recipe[]) => {
+             this.recipes = res;
+             this.recipesChanged.next(this.recipes.slice());
+           })
+        )
    }
 
   getRecipe(id: number){

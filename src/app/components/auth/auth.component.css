@@ -1,0 +1,14 @@
+.container{
+    margin-top: 50px;
+}
+
+.sign{
+    display: flex;
+    margin-top: 10px;
+}
+
+p{
+    color: rgb(54, 54, 156);
+    font-weight: bolder;
+    cursor: pointer;
+}

@@ -10,8 +10,7 @@ export class ShoppingService {
 
   ingredientSelected = new Subject<number>();
   ingredientsChanged = new Subject<Ingredient[]>();
-
-  ingredients: Ingredient[] = []
+  ingredients: Ingredient[] = [];
   
   constructor(private http: HttpClient) { }
 
@@ -21,7 +20,7 @@ export class ShoppingService {
 
   updateList(){
     this.http.put('https://recipes-ae571-default-rtdb.firebaseio.com/shopping-list.json', this.ingredients)
-    .subscribe(res => {})
+    .subscribe(res => {console.log(res)})
   }
 
   fetchList(){

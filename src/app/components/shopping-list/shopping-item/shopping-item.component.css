@@ -1,3 +1,10 @@
 li{
     cursor: pointer;
+    margin-bottom: 5px;
+    border-radius: 10px !important;
+}
+
+.isActive{
+    background-color: black;
+    color: white;
 }

@@ -1,5 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-        <h3>Please select a recipe</h3>
+        <h3 *ngIf="isLogged">Please select a recipe</h3>
+        <h3 *ngIf="!isLogged">Please Sign In to access the recipes</h3>
     </div>
 </div>

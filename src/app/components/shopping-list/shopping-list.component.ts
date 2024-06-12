@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class ShoppingListComponent implements OnInit, OnDestroy{
   ingredients?: Ingredient[];
   ingredientsHaveChanged?: Subscription;
+  current?:number;
 
   constructor(private shoppingService: ShoppingService){}
 
@@ -20,6 +21,10 @@ export class ShoppingListComponent implements OnInit, OnDestroy{
      this.shoppingService.ingredientsChanged.subscribe((ingredients: Ingredient[]) => {
            this.ingredients = [...ingredients];
      })
+  }
+
+  onClear(value: boolean){
+     this.current = -1;
   }
 
   ngOnDestroy(): void {

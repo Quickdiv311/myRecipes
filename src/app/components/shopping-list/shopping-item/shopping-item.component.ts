@@ -10,6 +10,7 @@ import { ShoppingService } from 'src/app/services/shopping.service';
 export class ShoppingItemComponent {
   @Input() ingredient?: Ingredient;
   @Input() index?: number;
+  @Input() current?: number;
 
   constructor(private shoppingService: ShoppingService){}
 

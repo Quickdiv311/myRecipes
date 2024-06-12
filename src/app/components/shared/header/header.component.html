@@ -19,18 +19,20 @@
           <span class="fas fa-search search-icon"></span>
         </li>
        
-        <li class="nav-item cart-container">
+        <!-- <li class="nav-item cart-container">
           <p class="cart-number">1</p>
             <span class="fa-solid fa-cart-shopping"></span>
+        </li> -->
+
+
+        <li class="nav-item sign-in" routerLinkActive="active" *ngIf="!isLoggedIn">
+          <p class="route-link" routerLink="/auth">Sign In</p>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Sign
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Sign In</a>
-            <a class="dropdown-item" href="#">Log In</a>
-          </div>
+        <li class="nav-item profile-container" *ngIf="isLoggedIn">
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <p class="route-link" (click)="onSignOut()">Sign Out</p>
         </li>
       </ul>
     </div>

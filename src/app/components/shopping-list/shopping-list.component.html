@@ -1,14 +1,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10">
-            <app-shopping-edit></app-shopping-edit>
+            <app-shopping-edit (ingredientCleared)="onClear($event)"></app-shopping-edit>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4">
             <ul class="list-group">
-            <app-shopping-item *ngFor="let ingredient of ingredients; let i=index" 
-                               [ingredient]="ingredient" [index]="i">
+            <app-shopping-item (click)="current=i" *ngFor="let ingredient of ingredients; let i=index" 
+                               [ingredient]="ingredient" [index]="i" [current]="current">
             </app-shopping-item>
             </ul>
         </div>
