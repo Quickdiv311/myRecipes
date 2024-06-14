@@ -12,3 +12,9 @@ p{
     font-weight: bolder;
     cursor: pointer;
 }
+
+.loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

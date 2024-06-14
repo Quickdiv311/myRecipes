@@ -1,9 +1,11 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 offset-md-4 col-md-4">
-            <app-loader *ngIf="isLoading"></app-loader>
+            <div class="loader">
+                <app-loader *ngIf="isLoading"></app-loader>
+            </div>
              
-            <h2>Please enter you Credentials</h2>
+            <h2 *ngIf="!isLoading">Please enter you Credentials</h2>
             <div class="alert alert-danger col-xs-12" *ngIf="error.length > 0 && !isLoading" >{{error}}</div>
             <form class="mb-3" #signForm="ngForm" (ngSubmit)="onSubmit(signForm)" *ngIf="!isLoading">
                 <div class="form-group" *ngIf="!isLoginMode">
