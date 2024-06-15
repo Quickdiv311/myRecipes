@@ -14,7 +14,7 @@ export class ShoppingItemComponent {
 
   constructor(private shoppingService: ShoppingService){}
 
-  onItemClick(index: number|undefined){
+  onItemClick(index: any){
        this.shoppingService.ingredientSelected.next(index);
   }
 }
